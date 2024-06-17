@@ -3,6 +3,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
 from plotly.subplots import make_subplots
+import pathlib
 
 from bs4 import BeautifulSoup
 import requests
@@ -35,7 +36,10 @@ def get_moving_avg_bollinger_bands(df,col,days):
 Loads data from extracted csv files as pandas dataframe
 '''
 def load_data(symbol):
-    data = pd.read_csv('processed_data\\{}.csv'.format(symbol))
+    dir_path = pathlib.Path(__file__).parents[1]
+    dir_data_files = str(dir_path) + '\\data_files\\processed\\'
+
+    data = pd.read_csv(dir_data_files + '{}.csv'.format(symbol))
     columns = data.columns  # ['Date', 'OPEN', 'HIGH', 'LOW', 'CLOSE', 'LAST', 'PREVCLOSE', 'TOTTRDQTY', 'TOTTRDVAL', 'TOTALTRADES']
     data = data[columns]
     return data

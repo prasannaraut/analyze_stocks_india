@@ -10,7 +10,7 @@ Relative Strength Index (RSI) measures the magnitude of recent price changes and
 '''
 
 import pandas as pd
-import supporting_functions as sf #get_moving_avg, load_data
+import analyze_stocks_india.supporting_functions as sf #get_moving_avg, load_data
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -29,24 +29,33 @@ pd.set_option('display.max_rows', None)
 
 #symbols = sf.nifty_100
 #symbols = sf.good_penny_shares
-symbols = sf.nifty_100 + sf.good_penny_shares
+#symbols = sf.nifty_100 + sf.good_penny_shares
 
-symbols_buy, rsi_data_list, fig_list, mean_reversion_list = sf.predict_stock_to_buy_using_RSI(symbols,3,30,70, 0.05)
-
-for i in range(len(symbols_buy)):
-    print("Buy Signal for {} using RSI and Mean Reversion is {}".format(symbols_buy[i],mean_reversion_list[i]))
-
-
-for fig in fig_list:
-    fig.show()
-
-
-###### Just to create plot of all the companies
-#for s in symbols:
-#    fig = sf.create_plot_from_symbol(s,["CLOSE"],s)
-#    fig.show()
+def stocks_to_buy_strategy_mean_reverser(symbols):
+    '''
+    :param symbols: python list of nse symbols to analyze
+    :return: stocks recommend to buy as list
+    Shows: details of the stocks and figure showing the plots
+    '''
+    symbols_buy, rsi_data_list, fig_list, mean_reversion_list = sf.predict_stock_to_buy_using_RSI(symbols,3,30,70, 0.05)
 
 
+    for i in range(len(symbols_buy)):
+        print("Buy Signal for {} using RSI and Mean Reversion is {}".format(symbols_buy[i],mean_reversion_list[i]))
+
+
+    for fig in fig_list:
+        fig.show()
+
+    return symbols_buy
+
+
+    ###### Just to create plot of all the companies
+    #for s in symbols:
+    #    fig = sf.create_plot_from_symbol(s,["CLOSE"],s)
+    #    fig.show()
+
+    return None
 
 
 

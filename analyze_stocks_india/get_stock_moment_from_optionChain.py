@@ -1,4 +1,4 @@
-import supporting_functions as rf
+import analyze_stocks_india.supporting_functions as rf
 import time
 import pandas as pd
 pd.set_option('display.max_columns', 500)
@@ -25,38 +25,46 @@ print(rf.get_immediate_moment(sbin))
 #print(rf.get_resistance(bajfinance,1))
 
 #symbol = rf.nifty_50
-symbol = rf.nifty_50
 #symbol = rf.good_penny_shares
 
-symbol.remove("CIPLA")
+#symbol.remove("CIPLA")
 #symbol.remove("COALINDIA")
 
 #symbol =["HCLTECH", "KOTAKBANK", "HDFCLIFE"]
 
+def get_stock_using_optionChain(symbols):
+    '''
+    :param symbols: python list of symbols
+    :return: list of stocks recommended to buy as list
+    :shows: figures with charts for identified stocks
+    '''
 
-for s in symbol:
-    print("Checking for {}".format(s))
-    stock = rf.get_stock_info_json(s)
-    if bool(stock):
-        moment = rf.get_immediate_moment(stock)
-        print("Immediate moment of {} is {}".format(s, moment))
+    buy_signals = []
+    for s in symbols:
+        print("Checking for {}".format(s))
+        stock = rf.get_stock_info_json(s)
+        if bool(stock):
+            moment = rf.get_immediate_moment(stock)
+            print("Immediate moment of {} is {}".format(s, moment))
 
-        expiry_moment = rf.get_expiryDate_moment(stock,1) #output: [movement, movement_percent, avg_LTP_pChange, supports, resistances, current_value]
-        print("Expiry Date Moment is {} with chace of {}%, avg_LTP_percentChange = {},   supports are {} resistances are {} with current value of {}".format(
-            expiry_moment[0], expiry_moment[1], expiry_moment[2], expiry_moment[3], expiry_moment[4], expiry_moment[5]))
+            expiry_moment = rf.get_expiryDate_moment(stock,1) #output: [movement, movement_percent, avg_LTP_pChange, supports, resistances, current_value]
+            print("Expiry Date Moment is {} with chace of {}%, avg_LTP_percentChange = {},   supports are {} resistances are {} with current value of {}".format(
+                expiry_moment[0], expiry_moment[1], expiry_moment[2], expiry_moment[3], expiry_moment[4], expiry_moment[5]))
 
-        # create plot if moment is Bullish from Open Interest Analysis
-        if (expiry_moment[0] == "Bullish"):
-            fig = rf.create_plot_from_symbol(s,["CLOSE"],s+" - Bullish in Near Future")
-            fig.show()
+            # create plot if moment is Bullish from Open Interest Analysis
+            if (expiry_moment[0] == "Bullish"):
+                fig = rf.create_plot_from_symbol(s,["CLOSE"],s+" - Bullish in Near Future")
+                fig.show()
+                buy_signals.append(s)
 
 
+        else:
+            print("Could not download option chain data for {}".format(s))
 
-    else:
-        print("Could not download option chain data for {}".format(s))
+        print("\n\n")
+        time.sleep(10)
 
-    print("\n\n")
-    time.sleep(10)
+    return buy_signals
 
 '''
 sbin['records']['data'] #list one entry for each strike priec and expiration date
