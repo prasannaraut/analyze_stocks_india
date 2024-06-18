@@ -6,7 +6,7 @@ setup(
     description='A python package to download historic stock prices from NSE website and process them to find best stock to purchase',
     author='Prasanna Raut',
     author_email='prasannaraut36@gmail.com',
-    packages=['analyze_stocks_india'],
+    packages=['analyze_stocks_india','sample_scripts'],
     install_requires=[
         'numpy>=2.0.0',
         'pandas>=2.2.2',
