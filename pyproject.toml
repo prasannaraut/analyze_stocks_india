@@ -1,3 +1,7 @@
+[build-system]
+requires      = ["setuptools>=69.5.1", "wheel"]
+build-backend = "setuptools.build_met
+
 [project]
 name = "analyze_stocks_india"
 version = "1.0.0"
@@ -12,6 +16,16 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: Developed in Windows",
 ]
+dependencies = [
+    "numpy>=2.0.0",
+    "pandas>=2.2.2",
+    "nltk>=3.8.1",
+    "plotly>=5.22.0",
+    "requests>=2.32.3",
+    "bs4",
+    "tenacity>=8.3.0",
+]
+
 
 [project.urls]
 Homepage = "https://github.com/prasannaraut/analyze_stocks_india"
