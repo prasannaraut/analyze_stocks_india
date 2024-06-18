@@ -1,0 +1,18 @@
+[project]
+name = "analyze_stocks_india"
+version = "1.0.0"
+authors = [
+  { name="Prasanna Raut", email="prasannaraut36@gmail.com" },
+]
+description = "A python package to download historic stock prices from NSE website and process them to find best stock to purchase"
+readme = "README.rst"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Developed in Windows",
+]
+
+[project.urls]
+Homepage = "https://github.com/prasannaraut/analyze_stocks_india"
+Issues = "https://github.com/prasannaraut/analyze_stocks_india/blob/main/issues"
