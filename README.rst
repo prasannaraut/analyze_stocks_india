@@ -8,9 +8,9 @@ Packages requirement
     As mentioned in requirements.txt
 
 Stock Files
-    All the downloaded files are in directory data_files --> raw\
-    All the processed data files are in directory data_files --> processed\
-    Note: After installation of library 'data_files' folder will not be present, once you start downloading files these will be available at the same location where this library is installed.\
+    All the downloaded files are in directory data_files --> raw <br>
+    All the processed data files are in directory data_files --> processed <br>
+    Note: After installation of library 'data_files' folder will not be present, once you start downloading files these will be available at the same location where this library is installed.<br>
 
 Sample Scripts
     Few sample scripts have been created in sample_scripts folder for ease of understanding, available in the same directoyr where this library is installed.
