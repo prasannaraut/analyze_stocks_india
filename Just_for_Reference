@@ -1,6 +1,7 @@
 To build library - referred this website
   https://realpython.com/pypi-publish-python-package/
   https://packaging.python.org/en/latest/tutorials/packaging-projects/
+  https://setuptools.pypa.io/en/latest/build_meta.html
 
 Package Webpage on pypi
 https://test.pypi.org/project/analyze-stocks-india/
