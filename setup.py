@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='analyze_stocks_india',
-    version='1.0.1',
+    version='1.0.2',
     description='A python package to download historic stock prices from NSE website and process them to find best stock to purchase',
     author='Prasanna Raut',
     author_email='prasannaraut36@gmail.com',
