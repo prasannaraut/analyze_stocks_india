@@ -3,12 +3,13 @@ To build library - referred this website
   https://packaging.python.org/en/latest/tutorials/packaging-projects/
   https://setuptools.pypa.io/en/latest/build_meta.html
   
-To create wheel file, navigate to the directory where all files are present. Then use
+To create wheel file, navigate to the directory where all files are present. Then use following command. (preferably use latest version of python here)
   pip install build
   python -m build
 
-To upload data to pypi website use
+To upload data to pypi website use (preferably use latest version of python here)
   pip install twine
+  twine check dist/*
   twine upload dist/*
   note: while uploading the data files to pypi server using twine username is '__token__' and password is the API token that you had generated
 
