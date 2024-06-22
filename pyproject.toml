@@ -1,28 +1,28 @@
 [build-system]
-requires      = ["setuptools>=69.5.1", "wheel"]
+requires      = ["setuptools>=49.6.0", "wheel"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "analyze_stocks_india"
-version = "1.0.0"
+version = "1.0.1"
 authors = [
   { name="Prasanna Raut", email="prasannaraut36@gmail.com" },
 ]
 description = "A python package to download historic stock prices from NSE website and process them to find best stock to purchase"
 readme = "README.rst"
-requires-python = ">=3.10"
+requires-python = ">=3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
 ]
 dependencies = [
-    "numpy>=2.0.0",
-    "pandas>=2.2.2",
-    "nltk>=3.8.1",
-    "plotly>=5.22.0",
-    "requests>=2.32.3",
+    "numpy>=1.19.5",
+    "pandas>=1.1.5",
+    "nltk>=3.6.7",
+    "plotly>=5.18.0",
+    "requests>=2.27.1",
     "bs4",
-    "tenacity>=8.3.0",
+    "tenacity>=8.2.2",
 ]
 [project.urls]
 Homepage = "https://github.com/prasannaraut/analyze_stocks_india"
